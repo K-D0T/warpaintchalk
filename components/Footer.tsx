@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 py-12">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 text-center">
+    <footer className="border-t border-white/10 bg-warpaint-ink py-14 text-warpaint-bone">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-6 text-center">
         <Image
           src="/logo.jpeg"
           alt="War Paint Chalk logo"
@@ -11,12 +11,15 @@ export default function Footer() {
           height={56}
           className="rounded-full"
         />
-        <p className="text-xs uppercase tracking-[0.45em] text-warpaint-red">
+        <p className="font-display text-3xl uppercase tracking-wide sm:text-4xl">
+          War Paint
+        </p>
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-warpaint-red">
           Release Your Inner Warrior
         </p>
         <a
           href="mailto:warpaintchalk@yahoo.com"
-          className="text-sm text-warpaint-bone/60 transition-colors duration-300 hover:text-warpaint-bone"
+          className="text-sm text-warpaint-bone/60 transition-colors duration-300 hover:text-warpaint-red"
         >
           warpaintchalk@yahoo.com
         </a>

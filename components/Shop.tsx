@@ -72,49 +72,52 @@ export default function Shop() {
   return (
     <>
       {/* Products */}
-      <section id="products" className="mx-auto max-w-6xl px-6 py-24">
+      <section id="products" className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
         <Reveal>
-          <p className="text-center text-xs uppercase tracking-[0.45em] text-warpaint-red">
+          <p className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-warpaint-red sm:text-sm">
+            <span className="h-0.5 w-8 bg-warpaint-red" />
             The Arsenal
+            <span className="h-0.5 w-8 bg-warpaint-red" />
           </p>
-          <h2 className="mt-3 text-center font-display text-4xl font-semibold sm:text-5xl">
+          <h2 className="mt-4 text-center font-display text-5xl uppercase leading-none sm:text-7xl">
             Choose Your Weapon
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-2">
+        <div className="mt-14 grid gap-10 md:grid-cols-2">
           {PRODUCTS.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.15}>
               <motion.div
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-warpaint-smoke shadow-lg"
+                className="group flex h-full flex-col overflow-hidden border-2 border-warpaint-ink bg-white shadow-[8px_8px_0_rgba(10,10,10,1)]"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-64 overflow-hidden border-b-2 border-warpaint-ink">
                   <Image
                     src="/products.jpeg"
                     alt={p.name}
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-warpaint-smoke via-transparent to-transparent" />
-                  <span className="absolute right-4 top-4 rounded-full bg-warpaint-red px-4 py-1.5 text-sm font-semibold tracking-wider">
+                  <span className="absolute right-0 top-0 border-b-2 border-l-2 border-warpaint-ink bg-warpaint-red px-4 py-1.5 text-sm font-bold tracking-wider text-warpaint-bone">
                     ${p.price}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-7">
-                  <h3 className="font-display text-2xl font-semibold">{p.name}</h3>
-                  <p className="mt-1 text-sm uppercase tracking-[0.2em] text-warpaint-red">
+                  <h3 className="font-display text-3xl uppercase">{p.name}</h3>
+                  <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-warpaint-red sm:text-sm">
                     {p.tagline}
                   </p>
-                  <p className="mt-4 flex-1 text-warpaint-bone/70">{p.description}</p>
+                  <p className="mt-4 flex-1 leading-relaxed text-warpaint-ink/70">
+                    {p.description}
+                  </p>
                   {p.id === "colored" && (
                     <div className="mt-5 flex gap-2">
                       {COLORS.map((c) => (
                         <span
                           key={c.name}
                           title={c.name}
-                          className="h-5 w-5 rounded-full border border-white/20"
+                          className="h-5 w-5 border border-warpaint-ink/30"
                           style={{ backgroundColor: c.hex }}
                         />
                       ))}
@@ -122,7 +125,7 @@ export default function Shop() {
                   )}
                   <button
                     onClick={() => selectProduct(p.id)}
-                    className="mt-7 rounded-full bg-warpaint-red px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:bg-warpaint-ember hover:shadow-[0_8px_30px_rgba(163,38,56,0.4)]"
+                    className="mt-7 bg-warpaint-ink px-6 py-3.5 text-sm font-bold uppercase tracking-[0.2em] text-warpaint-bone transition-colors duration-300 hover:bg-warpaint-red"
                   >
                     Order — ${p.price} / bottle
                   </button>
@@ -134,51 +137,53 @@ export default function Shop() {
       </section>
 
       {/* Order form */}
-      <section id="order" className="relative overflow-hidden py-24">
-        <div className="absolute left-1/2 top-0 h-96 w-[40rem] -translate-x-1/2 animate-ember-pulse rounded-full bg-warpaint-red/10 blur-3xl" />
-        <div className="relative mx-auto max-w-3xl px-6">
+      <section id="order" className="px-6 pb-20 sm:pb-28">
+        <div className="mx-auto max-w-3xl">
           <Reveal>
-            <p className="text-center text-xs uppercase tracking-[0.45em] text-warpaint-red">
+            <p className="flex items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-warpaint-red sm:text-sm">
+              <span className="h-0.5 w-8 bg-warpaint-red" />
               Place Your Order
+              <span className="h-0.5 w-8 bg-warpaint-red" />
             </p>
-            <h2 className="mt-3 text-center font-display text-4xl font-semibold sm:text-5xl">
+            <h2 className="mt-4 text-center font-display text-5xl uppercase leading-none sm:text-7xl">
               Gear Up
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-center text-warpaint-bone/70">
-              Fill out your order below and hit send — it opens an email to us with
-              your order details. We&apos;ll reply to confirm payment and shipping.
+            <p className="mx-auto mt-5 max-w-xl text-center leading-relaxed text-warpaint-ink/70">
+              Fill out your order below and hit send — it opens an email to us
+              with your order details. We&apos;ll reply to confirm payment and
+              shipping.
             </p>
           </Reveal>
 
           <Reveal delay={0.15} className="mt-12">
-            <div className="rounded-2xl border border-white/10 bg-warpaint-smoke/80 p-8 shadow-xl backdrop-blur">
+            <div className="border-2 border-warpaint-ink bg-white p-7 shadow-[10px_10px_0_#a32638] sm:p-9">
               <div className="grid gap-6 sm:grid-cols-2">
-                <label className="flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-warpaint-bone/60">
+                <label className="flex flex-col gap-2 text-xs font-bold uppercase tracking-[0.2em] text-warpaint-ink/60">
                   Your Name
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jordan Smith"
-                    className="rounded-lg border border-white/10 bg-warpaint-ink px-4 py-3 text-base normal-case tracking-normal text-warpaint-bone placeholder:text-warpaint-bone/30 focus:border-warpaint-red focus:outline-none"
+                    className="border-2 border-warpaint-ink/20 bg-warpaint-bone/40 px-4 py-3 text-base font-normal normal-case tracking-normal text-warpaint-ink placeholder:text-warpaint-ink/30 focus:border-warpaint-red focus:outline-none"
                   />
                 </label>
-                <label className="flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-warpaint-bone/60">
+                <label className="flex flex-col gap-2 text-xs font-bold uppercase tracking-[0.2em] text-warpaint-ink/60">
                   Your Email
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="rounded-lg border border-white/10 bg-warpaint-ink px-4 py-3 text-base normal-case tracking-normal text-warpaint-bone placeholder:text-warpaint-bone/30 focus:border-warpaint-red focus:outline-none"
+                    className="border-2 border-warpaint-ink/20 bg-warpaint-bone/40 px-4 py-3 text-base font-normal normal-case tracking-normal text-warpaint-ink placeholder:text-warpaint-ink/30 focus:border-warpaint-red focus:outline-none"
                   />
                 </label>
-                <label className="flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-warpaint-bone/60">
+                <label className="flex flex-col gap-2 text-xs font-bold uppercase tracking-[0.2em] text-warpaint-ink/60">
                   Product
                   <select
                     value={productId}
                     onChange={(e) => setProductId(e.target.value as ProductId)}
-                    className="rounded-lg border border-white/10 bg-warpaint-ink px-4 py-3 text-base normal-case tracking-normal text-warpaint-bone focus:border-warpaint-red focus:outline-none"
+                    className="border-2 border-warpaint-ink/20 bg-warpaint-bone/40 px-4 py-3 text-base font-normal normal-case tracking-normal text-warpaint-ink focus:border-warpaint-red focus:outline-none"
                   >
                     {PRODUCTS.map((p) => (
                       <option key={p.id} value={p.id}>
@@ -187,7 +192,7 @@ export default function Shop() {
                     ))}
                   </select>
                 </label>
-                <label className="flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-warpaint-bone/60">
+                <label className="flex flex-col gap-2 text-xs font-bold uppercase tracking-[0.2em] text-warpaint-ink/60">
                   Quantity
                   <input
                     type="number"
@@ -197,14 +202,14 @@ export default function Shop() {
                     onChange={(e) =>
                       setQuantity(Math.max(1, Math.min(99, Number(e.target.value) || 1)))
                     }
-                    className="rounded-lg border border-white/10 bg-warpaint-ink px-4 py-3 text-base normal-case tracking-normal text-warpaint-bone focus:border-warpaint-red focus:outline-none"
+                    className="border-2 border-warpaint-ink/20 bg-warpaint-bone/40 px-4 py-3 text-base font-normal normal-case tracking-normal text-warpaint-ink focus:border-warpaint-red focus:outline-none"
                   />
                 </label>
               </div>
 
               {productId === "colored" && (
                 <div className="mt-6">
-                  <p className="text-xs uppercase tracking-[0.2em] text-warpaint-bone/60">
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-warpaint-ink/60">
                     Pick Your Color
                   </p>
                   <div className="mt-3 flex flex-wrap gap-3">
@@ -213,14 +218,14 @@ export default function Shop() {
                         key={c.name}
                         type="button"
                         onClick={() => setColor(c.name)}
-                        className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-all duration-300 ${
+                        className={`flex items-center gap-2 border-2 px-4 py-2 text-sm font-semibold transition-all duration-300 ${
                           color === c.name
-                            ? "border-warpaint-red bg-warpaint-red/15 text-warpaint-bone"
-                            : "border-white/10 text-warpaint-bone/60 hover:border-white/30"
+                            ? "border-warpaint-red bg-warpaint-red/10 text-warpaint-ink"
+                            : "border-warpaint-ink/15 text-warpaint-ink/60 hover:border-warpaint-ink/40"
                         }`}
                       >
                         <span
-                          className="h-4 w-4 rounded-full"
+                          className="h-4 w-4 border border-warpaint-ink/20"
                           style={{ backgroundColor: c.hex }}
                         />
                         {c.name}
@@ -230,24 +235,24 @@ export default function Shop() {
                 </div>
               )}
 
-              <label className="mt-6 flex flex-col gap-2 text-xs uppercase tracking-[0.2em] text-warpaint-bone/60">
+              <label className="mt-6 flex flex-col gap-2 text-xs font-bold uppercase tracking-[0.2em] text-warpaint-ink/60">
                 Notes (optional)
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   rows={3}
                   placeholder="Team name, shipping address, questions…"
-                  className="resize-none rounded-lg border border-white/10 bg-warpaint-ink px-4 py-3 text-base normal-case tracking-normal text-warpaint-bone placeholder:text-warpaint-bone/30 focus:border-warpaint-red focus:outline-none"
+                  className="resize-none border-2 border-warpaint-ink/20 bg-warpaint-bone/40 px-4 py-3 text-base font-normal normal-case tracking-normal text-warpaint-ink placeholder:text-warpaint-ink/30 focus:border-warpaint-red focus:outline-none"
                 />
               </label>
 
               <div className="mt-8 flex flex-col items-center justify-between gap-5 sm:flex-row">
                 <p className="text-lg">
                   Total:{" "}
-                  <span className="font-display text-2xl font-semibold text-warpaint-red">
+                  <span className="font-display text-3xl text-warpaint-red">
                     ${total}
                   </span>
-                  <span className="ml-2 text-sm text-warpaint-bone/50">
+                  <span className="ml-2 text-sm text-warpaint-ink/50">
                     ({quantity} × ${product.price})
                   </span>
                 </p>
@@ -255,7 +260,7 @@ export default function Shop() {
                   href={mailtoHref}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="rounded-full bg-warpaint-red px-10 py-3.5 text-sm font-medium uppercase tracking-[0.2em] transition-colors duration-300 hover:bg-warpaint-ember hover:shadow-[0_8px_30px_rgba(163,38,56,0.4)]"
+                  className="bg-warpaint-red px-10 py-4 text-sm font-bold uppercase tracking-[0.2em] text-warpaint-bone transition-all duration-300 hover:bg-warpaint-ink hover:shadow-[6px_6px_0_rgba(163,38,56,0.9)]"
                 >
                   Send Order Email
                 </motion.a>

@@ -3,10 +3,10 @@ import Reveal from "./Reveal";
 
 export default function About() {
   return (
-    <section id="about" className="border-y border-white/5 bg-warpaint-smoke/50">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2">
+    <section id="about" className="border-t-2 border-warpaint-ink bg-warpaint-ink text-warpaint-bone">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 sm:py-28 md:grid-cols-2">
         <Reveal>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
+          <div className="relative aspect-[4/3] overflow-hidden border-[3px] border-warpaint-bone shadow-[12px_12px_0_#a32638]">
             <Image
               src="/products.jpeg"
               alt="War Paint Chalk bottle lineup"
@@ -16,30 +16,31 @@ export default function About() {
           </div>
         </Reveal>
         <Reveal delay={0.15}>
-          <p className="text-xs uppercase tracking-[0.45em] text-warpaint-red">
+          <p className="flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-warpaint-red sm:text-sm">
+            <span className="h-0.5 w-8 bg-warpaint-red" />
             Our Story
           </p>
-          <h2 className="mt-3 font-display text-4xl font-semibold sm:text-5xl">
+          <h2 className="mt-4 font-display text-5xl uppercase leading-none sm:text-7xl">
             Built for the Mat
           </h2>
-          <p className="mt-6 text-warpaint-bone/70">
+          <p className="mt-7 leading-relaxed text-warpaint-bone/70">
             War Paint Chalk was made for cheer athletes who leave everything on the
             mat. Before warriors went to battle, they put on their war paint — and
             before you take the floor, you put on yours.
           </p>
-          <p className="mt-4 text-warpaint-bone/70">
+          <p className="mt-4 leading-relaxed text-warpaint-bone/70">
             Every 250 ML bottle delivers consistent, competition-grade grip. Our
             classic white keeps it traditional, while our colored line lets your
             whole squad fly in team colors.
           </p>
-          <ul className="mt-8 space-y-3 text-warpaint-bone/80">
+          <ul className="mt-8 space-y-3 font-semibold uppercase tracking-wide text-warpaint-bone/85">
             {[
               "Competition-grade grip that lasts",
               "250 ML bottles — squad-friendly sizing",
               "Six bold colors plus classic white",
             ].map((item) => (
-              <li key={item} className="flex items-center gap-3">
-                <span className="h-1.5 w-1.5 rounded-full bg-warpaint-red" />
+              <li key={item} className="flex items-center gap-3 text-sm">
+                <span className="h-2 w-2 bg-warpaint-red" />
                 {item}
               </li>
             ))}

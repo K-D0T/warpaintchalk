@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Oswald } from "next/font/google";
+import { Anton, Archivo } from "next/font/google";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const anton = Anton({
+  weight: "400",
   subsets: ["latin"],
   variable: "--font-display",
 });
 
-const oswald = Oswald({
+const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-label",
 });
@@ -30,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${playfair.variable} ${oswald.variable} bg-warpaint-ink font-label text-warpaint-bone antialiased`}
+        className={`${anton.variable} ${archivo.variable} bg-warpaint-bone font-label text-warpaint-ink antialiased`}
       >
         {children}
       </body>

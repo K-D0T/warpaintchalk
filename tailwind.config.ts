@@ -27,10 +27,15 @@ const config: Config = {
           from: { transform: "rotate(0deg)" },
           to: { transform: "rotate(360deg)" },
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "ember-pulse": "emberPulse 7s ease-in-out infinite",
         "slow-spin": "slowSpin 60s linear infinite",
+        marquee: "marquee 22s linear infinite",
       },
     },
   },
