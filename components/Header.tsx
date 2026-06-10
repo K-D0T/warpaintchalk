@@ -28,11 +28,11 @@ export default function Header() {
             className="rounded-full"
             priority
           />
-          <span className="font-display text-lg font-semibold tracking-wide">
+          <span className="hidden font-display text-lg font-semibold tracking-wide whitespace-nowrap sm:inline">
             WAR PAINT
           </span>
         </Link>
-        <nav className="flex items-center gap-6 text-sm uppercase tracking-[0.2em]">
+        <nav className="flex items-center gap-4 text-xs uppercase tracking-[0.15em] sm:gap-6 sm:text-sm sm:tracking-[0.2em]">
           {links.map((link) => (
             <Link
               key={link.href}

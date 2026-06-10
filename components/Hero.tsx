@@ -35,7 +35,7 @@ export default function Hero() {
             width={160}
             height={160}
             priority
-            className="rounded-full shadow-[0_0_60px_rgba(163,38,56,0.45)]"
+            className="h-28 w-28 rounded-full shadow-[0_0_60px_rgba(163,38,56,0.45)] sm:h-40 sm:w-40"
           />
         </motion.div>
         <motion.h1
@@ -48,7 +48,7 @@ export default function Hero() {
         <motion.p
           variants={fadeUp}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mt-4 text-sm uppercase tracking-[0.45em] text-warpaint-red sm:text-base"
+          className="mt-4 text-xs uppercase tracking-[0.3em] text-warpaint-red sm:text-base sm:tracking-[0.45em]"
         >
           Release Your Inner Warrior
         </motion.p>
