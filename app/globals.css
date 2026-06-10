@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background-color: #a32638;
+  color: #f5f1ec;
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
